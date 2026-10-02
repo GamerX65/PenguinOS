@@ -2,11 +2,11 @@
 
 ## v17.0-20261002-veux-userdebug
 
-Initial PenguinOS public release for `veux`.
+Initial PenguinOS public release for Xiaomi Redmi Note 11 Pro 5G (`veux`) and POCO X4 Pro 5G (`peux`).
 
 ### Included artifacts
 
-- Split A/B OTA package, reassembled SHA-256: `74332a088beb7deeb4900b80dd0f75450abb985e2062f8bfeb32ae50a7fd7a82`
+- A/B OTA package, distributed as a normal single ZIP outside GitHub because the 2.416 GB file exceeds GitHub's per-asset limit. SHA-256: `74332a088beb7deeb4900b80dd0f75450abb985e2062f8bfeb32ae50a7fd7a82`
 - `boot.img`
 - `vendor_boot.img`
 - `dtbo.img`
