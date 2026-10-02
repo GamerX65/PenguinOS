@@ -1,12 +1,12 @@
-# Flashing PenguinOS on `veux`
+# Flashing PenguinOS on Xiaomi Redmi Note 11 Pro 5G (`veux`) / POCO X4 Pro 5G (`peux`)
 
 > **Warning:** Flashing or formatting can erase data and can make a device unbootable if the wrong files are used. Verify the device codename, keep a recovery path available, and make a backup first.
 
-This release is intended for the established `veux` fastboot-plus-custom-recovery workflow.
+This release is intended for the shared `veux` / `peux` fastboot-plus-custom-recovery workflow.
 
 ## Before you begin
 
-1. Confirm the phone is the intended Xiaomi `veux` device family and its bootloader is unlocked.
+1. Confirm the phone is either Xiaomi Redmi Note 11 Pro 5G (`veux`) or POCO X4 Pro 5G (`peux`), and that its bootloader is unlocked.
 2. Download every release asset and follow [VERIFY.md](VERIFY.md) before flashing.
 3. Keep a known-working recovery image and a device backup available.
 4. Do not flash a truncated or checksum-mismatched file.
