@@ -1,6 +1,6 @@
 # Source and redistribution boundaries
 
-PenguinOS follows a split-repository maintainer model rather than publishing an opaque monorepo snapshot.
+PenguinOS follows a split-repository maintainer model for the shared Xiaomi Redmi Note 11 Pro 5G (`veux`) and POCO X4 Pro 5G (`peux`) platform rather than publishing an opaque monorepo snapshot.
 
 ## Public release hub
 
