@@ -1,20 +1,20 @@
 # PenguinOS
 
-PenguinOS is an Android custom-ROM release and maintainer hub for the Xiaomi Redmi Note 11 family (`veux`). This repository contains release documentation, integrity metadata, and links to downloadable builds. It intentionally does **not** carry a monolithic Android source checkout or proprietary blob dumps.
+PenguinOS is an Android custom-ROM release and maintainer hub for the Xiaomi Redmi Note 11 Pro 5G (`veux`) and POCO X4 Pro 5G (`peux`). This repository contains release documentation, integrity metadata, and links to downloadable builds. It intentionally does **not** carry a monolithic Android source checkout or proprietary blob dumps.
 
 ## Current release
 
 | Field | Value |
 | --- | --- |
 | Tag | [`v17.0-20261002-veux-userdebug`](https://github.com/GamerX65/PenguinOS/releases/tag/v17.0-20261002-veux-userdebug) |
-| Device | Xiaomi Redmi Note 11 5G / Redmi Note 11T 5G family (`veux`; OTA also declares `peux`) |
+| Device | Xiaomi Redmi Note 11 Pro 5G (`veux`) and POCO X4 Pro 5G (`peux`) |
 | Platform | AOSPA / Android 17 |
 | Build type | `userdebug` |
 | Signing | `test-keys` |
 | Update package | A/B OTA |
 | OTA SHA-256 | `74332a088beb7deeb4900b80dd0f75450abb985e2062f8bfeb32ae50a7fd7a82` |
 
-The OTA is larger than GitHub's per-asset limit, so it is published as numbered parts. Reassemble the parts locally before sideloading. See [download and verification](docs/VERIFY.md) and the [flashing guide](docs/FLASHING.md).
+The normal-user OTA is one complete `aospa_veux-ota.zip`. GitHub has a 2 GB per-asset limit, so this hub does **not** use split OTA parts as its installation path. The untouched full OTA stays on the build server and will be linked from a single-file release mirror; see [download and verification](docs/VERIFY.md). GitHub continues to carry the release metadata and standalone fastboot images.
 
 ## Repository boundaries
 
@@ -37,7 +37,7 @@ The device uses a legacy 5.4 kernel. Host-side OTA kernel-FCM requirements were 
 
 - Release assets are accompanied by SHA-256 checksums.
 - The original build outputs are retained on the build server; publishing never removes them.
-- OTA payloads are split only for transport. Reassembled output must match the published whole-OTA hash before flashing.
+- GitHub is not used for a split-OTA installation flow. The single complete OTA remains preserved until a host that supports files above 2 GB is linked.
 - Flash images are published separately for the established fastboot-plus-recovery workflow.
 - Changes and known caveats are recorded in [CHANGELOG.md](CHANGELOG.md).
 
