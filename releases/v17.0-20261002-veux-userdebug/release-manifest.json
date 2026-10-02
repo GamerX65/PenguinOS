@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "project": "PenguinOS",
+  "release": {
+    "tag": "v17.0-20261002-veux-userdebug",
+    "date": "2026-10-02",
+    "device": "veux",
+    "preDevice": [
+      "peux",
+      "veux"
+    ],
+    "platform": "AOSPA / Android 17",
+    "buildType": "userdebug",
+    "signing": "test-keys",
+    "otaType": "AB"
+  },
+  "ota": {
+    "reassembledName": "aospa_veux-ota.zip",
+    "bytes": 2416430239,
+    "sha256": "74332a088beb7deeb4900b80dd0f75450abb985e2062f8bfeb32ae50a7fd7a82",
+    "parts": [
+      {
+        "name": "aospa_veux-ota.zip.part-00",
+        "bytes": 1572864000,
+        "sha256": "d3c9d9470dcf54fe45486fb04c3c7bfc715d487476fef13f46c65362602278b0"
+      },
+      {
+        "name": "aospa_veux-ota.zip.part-01",
+        "bytes": 843566239,
+        "sha256": "77a667d5570f6d837575d2641b5d29ad8508512f1bf0e18af63f3d2d2ef4ce52"
+      }
+    ]
+  },
+  "flashImages": [
+    {
+      "name": "boot.img",
+      "bytes": 134217728,
+      "sha256": "56605752f15774bfb1e2e50e7d02a88509f4438d509774cafe33e99c42269d0e"
+    },
+    {
+      "name": "vendor_boot.img",
+      "bytes": 100663296,
+      "sha256": "f2014b69af8ff1faf42f2c63608126ddbaeecac169c1ae2211a48961dc7d7b79"
+    },
+    {
+      "name": "dtbo.img",
+      "bytes": 8388608,
+      "sha256": "4c5ac71c43ee931ec2d6594d6ca664c70c9d16a391607a592e4da182aa808a19"
+    }
+  ],
+  "verification": {
+    "otaZipTest": "passed",
+    "targetFilesVintf": "passed with non-kernel enforcement retained",
+    "hardwareBootTested": false,
+    "legacyKernelNotice": "Host-side OTA kernel-FCM requirements are exempted for the 5.4 kernel; this is not a runtime FCM or CTS claim."
+  }
+}
