@@ -16,16 +16,21 @@ PenguinOS is an Android custom-ROM release and maintainer hub for the Xiaomi Red
 
 The normal-user OTA is one complete `aospa_veux-ota.zip`. GitHub has a 2 GB per-asset limit, so this hub does **not** use split OTA parts as its installation path. The untouched full OTA stays on the build server and will be linked from a single-file release mirror; see [download and verification](docs/VERIFY.md). GitHub continues to carry the release metadata and standalone fastboot images.
 
-## Repository boundaries
+## Source repositories
 
-Maintainer projects are deliberately separated so history, licensing, review, and downstream contributions remain clear:
+Use **[android_manifest](https://github.com/GamerX65/android_manifest)** as the source entrypoint. It contains the AOSPA Android 17 local-manifest overlay, exact upstream revisions, and the device/vendor setup notes.
 
-- **`PenguinOS`** — public release hub, documentation, release metadata, checksums, and signed build assets.
-- **Device tree** — planned as `android_device_xiaomi_veux`; device configuration and VINTF/board policy only.
-- **Kernel tree** — planned as `android_kernel_xiaomi_sm6375`; upstream/source history and device kernel patches only.
-- **Vendor materials** — proprietary blobs are not committed to this public hub. A future vendor repository, if published, will contain only materials that can be redistributed lawfully or extraction scripts/manifest metadata.
+| Repository | Default branch | Responsibility |
+| --- | --- | --- |
+| [android_device_xiaomi_veux](https://github.com/GamerX65/android_device_xiaomi_veux) | `penguinos/android-17` | Shared device tree for Xiaomi Redmi Note 11 Pro 5G (`veux`) and POCO X4 Pro 5G (`peux`) |
+| [android_kernel_xiaomi_sm6375](https://github.com/GamerX65/android_kernel_xiaomi_sm6375) | `penguinos/android-17` | SM6375 kernel source and PenguinOS build compatibility fixes |
+| [android_hardware_xiaomi](https://github.com/GamerX65/android_hardware_xiaomi) | `penguinos/android-17` | Xiaomi hardware interfaces, including the Goodix fingerprint extension |
+| [android_hardware_qcom_thermal](https://github.com/GamerX65/android_hardware_qcom_thermal) | `penguinos/android-17` | Qualcomm thermal HAL compatibility source |
+| [android_hardware_qcom_display](https://github.com/GamerX65/android_hardware_qcom_display) | `penguinos/android-17` | Qualcomm display compatibility source |
+| [android_kernel_build](https://github.com/GamerX65/android_kernel_build) | `penguinos/android-17` | Device-scoped kernel-build integration |
+| [android_vendor_xiaomi_veux](https://github.com/GamerX65/android_vendor_xiaomi_veux) | `main` | Public extraction manifest and source-only vendor patch; no proprietary blobs |
 
-This separation is intentional. A release asset is not a source drop, and a source repository should not hide proprietary binaries among otherwise reviewable code. The current source-publication status and recorded build environment are documented in [SOURCE](docs/SOURCE.md) and [BUILD](docs/BUILD.md).
+The repositories above preserve their upstream histories through GitHub forks where applicable. The public vendor repository deliberately contains **no** OEM blobs, firmware, APKs, JARs, or shared libraries.
 
 ## Support status
 
