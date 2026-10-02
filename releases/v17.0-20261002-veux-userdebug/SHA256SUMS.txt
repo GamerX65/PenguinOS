@@ -1,6 +1,5 @@
+# The normal OTA is one complete file distributed from a mirror that supports files above 2 GB.
 74332a088beb7deeb4900b80dd0f75450abb985e2062f8bfeb32ae50a7fd7a82  aospa_veux-ota.zip
-d3c9d9470dcf54fe45486fb04c3c7bfc715d487476fef13f46c65362602278b0  aospa_veux-ota.zip.part-00
-77a667d5570f6d837575d2641b5d29ad8508512f1bf0e18af63f3d2d2ef4ce52  aospa_veux-ota.zip.part-01
 56605752f15774bfb1e2e50e7d02a88509f4438d509774cafe33e99c42269d0e  boot.img
 f2014b69af8ff1faf42f2c63608126ddbaeecac169c1ae2211a48961dc7d7b79  vendor_boot.img
 4c5ac71c43ee931ec2d6594d6ca664c70c9d16a391607a592e4da182aa808a19  dtbo.img
