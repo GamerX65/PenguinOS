@@ -12,24 +12,28 @@
     "platform": "AOSPA / Android 17",
     "buildType": "userdebug",
     "signing": "test-keys",
-    "otaType": "AB"
+    "otaType": "AB",
+    "supportedDevices": [
+      {
+        "codename": "veux",
+        "name": "Xiaomi Redmi Note 11 Pro 5G"
+      },
+      {
+        "codename": "peux",
+        "name": "POCO X4 Pro 5G"
+      }
+    ]
   },
   "ota": {
     "reassembledName": "aospa_veux-ota.zip",
     "bytes": 2416430239,
     "sha256": "74332a088beb7deeb4900b80dd0f75450abb985e2062f8bfeb32ae50a7fd7a82",
-    "parts": [
-      {
-        "name": "aospa_veux-ota.zip.part-00",
-        "bytes": 1572864000,
-        "sha256": "d3c9d9470dcf54fe45486fb04c3c7bfc715d487476fef13f46c65362602278b0"
-      },
-      {
-        "name": "aospa_veux-ota.zip.part-01",
-        "bytes": 843566239,
-        "sha256": "77a667d5570f6d837575d2641b5d29ad8508512f1bf0e18af63f3d2d2ef4ce52"
-      }
-    ]
+    "distribution": {
+      "packageType": "single complete ZIP",
+      "githubAsset": false,
+      "reason": "The 2,416,430,239-byte OTA exceeds GitHub release asset limits.",
+      "mirrorStatus": "pending normal single-file mirror"
+    }
   },
   "flashImages": [
     {
