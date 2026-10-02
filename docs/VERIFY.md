@@ -1,54 +1,36 @@
 # Download and verify
 
-GitHub Release assets are CDN-backed. The OTA is split into numbered parts because the complete ZIP exceeds GitHub's single-asset size limit.
+## Normal release package
 
-## Download
+The normal user package is one complete file named `aospa_veux-ota.zip`, for Xiaomi Redmi Note 11 Pro 5G (`veux`) and POCO X4 Pro 5G (`peux`).
 
-Download the following assets from the release page:
+GitHub cannot host the 2,416,430,239-byte OTA as one asset because its per-asset limit is 2 GB. PenguinOS therefore does **not** use split OTA parts as its public installation flow. The original, complete OTA remains preserved on the build server and will be linked from a normal single-file mirror before public install distribution.
 
-- `aospa_veux-ota.zip.part-00`
-- `aospa_veux-ota.zip.part-01`
-- `boot.img`
-- `vendor_boot.img`
-- `dtbo.img`
-- `SHA256SUMS.txt`
-- `release-manifest.json`
+The GitHub Release remains the authoritative home for the release tag, `boot.img`, `vendor_boot.img`, `dtbo.img`, checksums, and machine-readable manifest.
 
-Command-line download with GitHub CLI:
+## Verify the complete OTA
+
+After downloading the single-file OTA from its linked mirror, place it beside `SHA256SUMS.txt` and run:
 
 ```sh
-gh release download v17.0-20261002-veux-userdebug \
-  --repo GamerX65/PenguinOS \
-  --pattern 'aospa_veux-ota.zip.part-*' \
-  --pattern 'boot.img' \
-  --pattern 'vendor_boot.img' \
-  --pattern 'dtbo.img' \
-  --pattern 'SHA256SUMS.txt' \
-  --pattern 'release-manifest.json'
-```
-
-## Verify downloaded assets
-
-From the directory containing the downloaded files:
-
-```sh
-sha256sum -c --ignore-missing SHA256SUMS.txt
-```
-
-All downloaded parts and images must report `OK` before reassembly.
-
-## Reassemble and verify the OTA
-
-```sh
-cat aospa_veux-ota.zip.part-* > aospa_veux-ota.zip
 sha256sum -c SHA256SUMS.txt
 unzip -t aospa_veux-ota.zip
 ```
 
-The final whole-OTA SHA-256 must be:
+The expected full-OTA SHA-256 is:
 
 ```text
 74332a088beb7deeb4900b80dd0f75450abb985e2062f8bfeb32ae50a7fd7a82
 ```
 
-Do not sideload until the whole-OTA hash and ZIP integrity test both pass.
+Do not sideload until both commands pass.
+
+## Verify GitHub flash images
+
+The standalone GitHub assets can be verified with:
+
+```sh
+sha256sum -c --ignore-missing SHA256SUMS.txt
+```
+
+This validates `boot.img`, `vendor_boot.img`, and `dtbo.img` when they are in the current directory.
