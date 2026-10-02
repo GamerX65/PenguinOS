@@ -1,21 +1,30 @@
-# Source and redistribution boundaries
+# Source repositories
 
-PenguinOS follows a split-repository maintainer model for the shared Xiaomi Redmi Note 11 Pro 5G (`veux`) and POCO X4 Pro 5G (`peux`) platform rather than publishing an opaque monorepo snapshot.
+PenguinOS is maintained as a multi-repository Android 17 project for:
 
-## Public release hub
+- Xiaomi Redmi Note 11 Pro 5G (`veux`)
+- POCO X4 Pro 5G (`peux`)
 
-This repository publishes release documentation, checksums, manifests, and binary release assets. It is the authoritative place to find a release tag and its exact flash bundle.
+## Entry point
 
-## Planned source repositories
+Start with [android_manifest](https://github.com/GamerX65/android_manifest). Its local-manifest overlay replaces the maintained projects in a compatible AOSPA Android 17 checkout and `pinned-sources.json` records the exact upstream baselines.
 
-| Repository | Responsibility | Publication status |
-| --- | --- | --- |
-| `android_device_xiaomi_veux` | Device configuration, board config, sepolicy, overlays, VINTF policy | Planned |
-| `android_kernel_xiaomi_sm6375` | Kernel source, defconfig and maintained compatibility patches | Planned |
-| `android_vendor_xiaomi_veux` or extraction tooling | Vendor interface only; redistribution must be checked per blob/license | Not published |
+## Maintained sources
 
-Source material is not uploaded to this hub merely because it is present in a private build tree. Device and kernel repositories should retain meaningful upstream history and attribution. Proprietary vendor binaries require a separate redistribution decision.
+- [android_device_xiaomi_veux](https://github.com/GamerX65/android_device_xiaomi_veux) — shared device tree
+- [android_kernel_xiaomi_sm6375](https://github.com/GamerX65/android_kernel_xiaomi_sm6375) — SM6375 kernel
+- [android_hardware_xiaomi](https://github.com/GamerX65/android_hardware_xiaomi) — Xiaomi hardware interfaces / Goodix support
+- [android_hardware_qcom_thermal](https://github.com/GamerX65/android_hardware_qcom_thermal) — thermal HAL
+- [android_hardware_qcom_display](https://github.com/GamerX65/android_hardware_qcom_display) — display HAL
+- [android_kernel_build](https://github.com/GamerX65/android_kernel_build) — kernel-build integration
+- [android_vendor_xiaomi_veux](https://github.com/GamerX65/android_vendor_xiaomi_veux) — extraction manifest and source-only patch
 
-## Current transparency status
+The maintained Android source branches use `penguinos/android-17`; metadata repositories use `main`.
 
-The current release was built from a maintained private integration tree. The build command and validation record are documented in [BUILD.md](BUILD.md). Until source repositories and pinned manifests are published, this release should not be represented as publicly reproducible from this repository alone.
+## Vendor policy
+
+The vendor repository intentionally excludes Xiaomi, Qualcomm, Goodix, APK, firmware, and shared-library blobs. Users must obtain compatible OEM firmware independently and use the included extraction metadata. This maintains source transparency without redistributing proprietary payloads.
+
+## Transparency status
+
+The successful release build is now represented by public source branches and a pinned manifest overlay. Base AOSPA platform revisions and local source components are recorded in the manifest repository.
