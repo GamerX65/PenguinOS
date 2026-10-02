@@ -1,6 +1,6 @@
 # Build record
 
-This document records the successful environment used to package the initial public `veux` release. It is an audit record, not yet a public source-reproducibility guide.
+This document records the successful environment used to package the initial public shared `veux` / `peux` release. It is an audit record, not yet a public source-reproducibility guide.
 
 ## Recorded invocation
 
